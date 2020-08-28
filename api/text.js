@@ -4,6 +4,9 @@ router
   .get('/api/', (ctx, next) => {
     ctx.body = 'hello zzNet'
   })
+  .get('/api2/', (ctx, next) => {
+    ctx.body = 'hello zijin'
+  })
   .post('/api/users', (ctx, next) => {
     ctx.body = 'hello zzNet user'
   })
