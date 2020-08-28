@@ -9,7 +9,7 @@
     name: 'index',
     data () {
       return {
-        msg: 'welcome!'
+        msg: 'welcome zzwang text!'
       }
     }
   }

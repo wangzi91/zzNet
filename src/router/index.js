@@ -7,7 +7,12 @@ import index from '@/pages/index/index'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'hash',
   routes: [
+    {
+      path: '/',
+      redirect:'/login',
+    },
     {
       path: '/login',
       name: 'login',
