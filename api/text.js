@@ -1,9 +1,7 @@
 const Router = require('koa-router')
+
 const router = new Router()
 router
-  .get('/api/', (ctx, next) => {
-    ctx.body = 'hello zzNet'
-  })
   .get('/api2/', (ctx, next) => {
     ctx.body = 'hello zijin'
   })
