@@ -5,8 +5,20 @@
 </template>
 
 <script>
+
   export default {
-    name: 'App'
+    name: 'index',
+    data () {
+      return {
+        msg: 'welcome liker !',
+        activeIndex: '1',
+      }
+    },
+    methods: {
+      handleSelect (key, keyPath) {
+        console.log(key, keyPath)
+      }
+    }
   }
 </script>
 
@@ -17,6 +29,5 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
   }
 </style>

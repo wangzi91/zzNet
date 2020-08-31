@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{msg}}
+    <div class="index-top">{{msg}}</div>
   </div>
 </template>
 
@@ -9,12 +9,21 @@
     name: 'index',
     data () {
       return {
-        msg: 'welcome zzwang text!'
+        msg: 'welcome liker !',
+        activeIndex: '1',
+      }
+    },
+    methods: {
+      handleSelect (key, keyPath) {
+        console.log(key, keyPath)
       }
     }
   }
 </script>
 
-<style scoped>
-
+<style>
+  .index-top {
+    color: #409EFF;
+    margin-top: 20%;
+  }
 </style>
