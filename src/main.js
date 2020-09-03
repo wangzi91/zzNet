@@ -7,6 +7,7 @@ import App from './App'
 import router from './router'
 import cookie from 'vue-cookie'
 import '@/routerToken' // permission control
+import store from './store'
 
 Vue.config.productionTip = false
 Vue.prototype.$cookie = cookie
@@ -16,6 +17,7 @@ Vue.use(ElementUI)
 new Vue({
   el: '#app',
   router,
+  store,
   components: {App},
   template: '<App/>'
 })
