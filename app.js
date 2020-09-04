@@ -16,5 +16,5 @@ app.use(async (ctx, next) => {
   const ms = Date.now() - start
   console.log(`${ctx.method} ${ctx.url} ${ms}ms`)
 })
-app.use(router.routes()).use(router.allowedMethods())
+app.use(router.routes())
 app.listen(3001)

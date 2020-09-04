@@ -1,6 +1,19 @@
 const Router = require('koa-router')
 const sql = require('./mysql')
 
+function resArray (data) {
+  return {
+    code: 1,
+    list: data
+  }
+}
+function rejArray (err) {
+  return {
+    code: -1,
+    message: err
+  }
+}
+
 const router = new Router()
 router
   .get('/index/userList', async (ctx, next) => {
@@ -9,11 +22,9 @@ router
       return new Promise((res, rej) => {
         sql.query(sqlstr, (err, data) => {
           if (err) {
-            res({
-              message: err.message
-            })
+            res(rejArray(err.message))
           }
-          res(data)
+          res(resArray(data))
         })
       })
     }
