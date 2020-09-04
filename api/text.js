@@ -1,18 +1,26 @@
 const Router = require('koa-router')
 const sql = require('./mysql')
-sql.connect(function (err) {
-  if (err) {
-    console.error('mysql连接失败！ ' + err.stack)
-    return
-  }
-  console.log('mysql连接成功！ ' + sql.threadId)
-})
+
 const router = new Router()
 router
-  .get('/index/userList', (ctx, next) => {
-    ctx.body = 'hello zijin'
+  .get('/index/userList', async (ctx, next) => {
+    let sqlstr = 'select * from user'
+    const query = () => {
+      return new Promise((res, rej) => {
+        sql.query(sqlstr, (err, data) => {
+          if (err) {
+            res({
+              message: err.message
+            })
+          }
+          res(data)
+        })
+      })
+    }
+    let result = await query()
+    ctx.body = result
   })
-  .post('/api/users', (ctx, next) => {
+  .post('/api/users', async (ctx, next) => {
     ctx.body = 'hello zzNet user'
   })
 module.exports = router
