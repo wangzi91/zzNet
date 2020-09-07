@@ -1,5 +1,6 @@
 const Client = require('mysql')
-const ip = '119.45.218.149'
+// const ip = '119.45.218.149'
+const ip = '127.0.0.1'
 console.log('mysqlIp:', ip)
 const mySql = Client.createConnection({
   host: ip,
