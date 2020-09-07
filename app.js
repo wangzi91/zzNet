@@ -3,6 +3,7 @@ const cors = require('koa2-cors')
 const app = new Koa
 const router = require('./api/text')
 const KoaStatic = require('koa-static')
+const bodyParser = require('koa-bodyparser')
 
 app.use(KoaStatic(__dirname + '/dist/'))
 router.get('/', (ctx) => {
@@ -10,6 +11,7 @@ router.get('/', (ctx) => {
   ctx.response.body = fs.createReadStream(__dirname + '/dist/index.html')
 })
 app.use(cors())
+app.use(bodyParser())
 app.use(async (ctx, next) => {
   const start = Date.now()
   await next()

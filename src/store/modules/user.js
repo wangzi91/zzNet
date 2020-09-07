@@ -8,7 +8,7 @@ import baseUrl from '../../apiConfig/api'
 const state = {getToken: ''}
 
 const mutations = {
-  commitData(state, param) {
+  commitData (state, param) {
     state[param.name] = param.data
   },
   getTokens (state, data) {
@@ -23,11 +23,49 @@ const actions = {
     commit('clearErrorLog')
   },
   getUserLists ({commit}, param) {
-    console.log('111')
     return new Promise((resolve, reject) => {
       axios({
         url: baseUrl + '/index/userList',
         method: 'get'
+      }).then(({data}) => {
+        resolve(data)
+      }).catch((error) => {
+        reject(error)
+      })
+    })
+  },
+  addUserLists ({commit}, param) {
+    return new Promise((resolve, reject) => {
+      axios({
+        url: baseUrl + '/index/addUser',
+        method: 'post',
+        data: param
+      }).then(({data}) => {
+        resolve(data)
+      }).catch((error) => {
+        reject(error)
+      })
+    })
+  },
+  deleteUser ({commit}, param) {
+    return new Promise((resolve, reject) => {
+      axios({
+        url: baseUrl + '/index/deleteUser',
+        method: 'post',
+        data: param
+      }).then(({data}) => {
+        resolve(data)
+      }).catch((error) => {
+        reject(error)
+      })
+    })
+  },
+  editUser ({commit}, param) {
+    return new Promise((resolve, reject) => {
+      axios({
+        url: baseUrl + '/index/editUser',
+        method: 'post',
+        data: param
       }).then(({data}) => {
         resolve(data)
       }).catch((error) => {
