@@ -3,7 +3,6 @@
  */
 
 import axios from '@/utils/axios'
-import baseUrl from '../../apiConfig/api'
 
 const state = {getToken: ''}
 
@@ -25,7 +24,7 @@ const actions = {
   getUserLists ({commit}, param) {
     return new Promise((resolve, reject) => {
       axios({
-        url: baseUrl + '/index/userList',
+        url: '/index/userList',
         method: 'get'
       }).then(({data}) => {
         resolve(data)
@@ -37,8 +36,9 @@ const actions = {
   addUserLists ({commit}, param) {
     return new Promise((resolve, reject) => {
       axios({
-        url: baseUrl + '/index/addUser',
+        url: '/index/addUser',
         method: 'post',
+        header: { 'Content-Type': 'application/json' },
         data: param
       }).then(({data}) => {
         resolve(data)
@@ -50,7 +50,8 @@ const actions = {
   deleteUser ({commit}, param) {
     return new Promise((resolve, reject) => {
       axios({
-        url: baseUrl + '/index/deleteUser',
+        url: '/index/deleteUser',
+        header: { 'Content-Type': 'application/json' },
         method: 'post',
         data: param
       }).then(({data}) => {
@@ -63,7 +64,8 @@ const actions = {
   editUser ({commit}, param) {
     return new Promise((resolve, reject) => {
       axios({
-        url: baseUrl + '/index/editUser',
+        url: '/index/editUser',
+        header: { 'Content-Type': 'application/json' },
         method: 'post',
         data: param
       }).then(({data}) => {
