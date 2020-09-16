@@ -1,6 +1,7 @@
 <template>
   <div>
     <div>
+      <button @click="getUserList">获取List</button>
       <button @click="add('add')">添加</button>
     </div>
     <el-table
@@ -71,7 +72,7 @@
       }
     },
     mounted () {
-      this.getUserList()
+      // this.getUserList()
     },
     methods: {
       deleteUsers (e) {
