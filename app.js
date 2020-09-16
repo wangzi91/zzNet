@@ -18,5 +18,5 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} ${ms}ms`)
 })
 app.use(router.routes())
-// app.use(router.routes())
+
 app.listen(3001)
